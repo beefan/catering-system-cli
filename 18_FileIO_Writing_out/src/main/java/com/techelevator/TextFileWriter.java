@@ -21,7 +21,7 @@ public class TextFileWriter implements FileWriter {
 				BufferedWriter bufferedWriter = new BufferedWriter(printWriter) ){
 			
 			for (String line : lines) {
-				bufferedWriter.write(line +"\n");
+				bufferedWriter.write(line +"\n"); 
 			}
 		}
 				
