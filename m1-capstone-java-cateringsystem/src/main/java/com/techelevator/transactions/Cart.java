@@ -32,7 +32,7 @@ public class Cart {
 		
 	}
 	
-	public double getBalance() {
+	public int getBalance() {
 		
 		int balance = 0;
 		
@@ -42,16 +42,12 @@ public class Cart {
 		
 		}
 		
-		return convertCentsToDollars(balance);
+		return balance;
 	}
 	
 	public Map<Item, Integer> getCart(){
 		return this.cartMap;
 	}
 	
-	private double convertCentsToDollars(int value) {
-		
-		return value/100.;
-	}
 	
 }

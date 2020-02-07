@@ -36,4 +36,9 @@ public class DisplayCase {
 		return this.cart;
 		
 	}
+	
+	public Map<String, Integer> checkOut(Account account){
+		Register register = new Register();
+		return register.makeChange(account, this.cart);
+	}
 }
