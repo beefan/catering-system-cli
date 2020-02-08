@@ -69,7 +69,7 @@ public class CartTest {
 	public void returns_cost_of_item_added_to_cart_for_balance() {
 		
 		cart.addItem(item, 3);
-		Assert.assertEquals(245*3/100., cart.getBalance(), 2);
+		Assert.assertEquals(245*3, cart.getBalance());
 		
 	}
 	
@@ -78,14 +78,14 @@ public class CartTest {
 		
 		cart.addItem(item, 5);
 		cart.addItem(item2, 3);
-		Assert.assertEquals((245*5 + 546*3)/100., cart.getBalance(), 2);
+		Assert.assertEquals((245*5 + 546*3), cart.getBalance());
 		
 	}
 	
 	@Test
 	public void return_balance_is_zero_for_empty_cart() {
 		
-			Assert.assertEquals(0/100., cart.getBalance(),2);
+			Assert.assertEquals(0, cart.getBalance());
 			
 	}
 	

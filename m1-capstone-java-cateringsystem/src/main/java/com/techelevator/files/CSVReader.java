@@ -89,7 +89,7 @@ public class CSVReader implements Reader {
 	}
 	
 	private File getFile(String filename) {
-		
+
 		File file = new File(filename);
 		return file;
 	}

@@ -16,7 +16,12 @@ public class AccountTest {
 	@Test
 	public void return_balance_after_deposit() {
 		
-		account.deposit(750);
+		try {
+			account.deposit(750);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Assert.assertEquals(750, account.getBalance());
 		
 	}
@@ -24,8 +29,18 @@ public class AccountTest {
 	@Test
 	public void return_balance_after_purchase() {
 		
-		account.deposit(4000);
-		account.purchase(2500);
+		try {
+			account.deposit(4000);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			account.purchase(2500);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Assert.assertEquals(4000-2500, account.getBalance());
 	
 	}
@@ -33,8 +48,18 @@ public class AccountTest {
 	@Test
 	public void return_balance_after_purchase_larger_than_balance() {
 		
-		account.deposit(4000);
-		account.purchase(5000);
+		try {
+			account.deposit(4000);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			account.purchase(5000);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Assert.assertEquals(4000, account.getBalance());
 	
 	}
@@ -49,7 +74,12 @@ public class AccountTest {
 	@Test
 	public void balance_cant_be_more_than_5000_dollars() {
 		
-		account.deposit(6000*100);
+		try {
+			account.deposit(6000*100);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Assert.assertEquals(0, account.getBalance());
 		
 	}

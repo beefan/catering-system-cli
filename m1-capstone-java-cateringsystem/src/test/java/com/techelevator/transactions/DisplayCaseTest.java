@@ -9,10 +9,11 @@ import org.junit.Test;
 import com.techelevator.items.Dessert;
 
 public class DisplayCaseTest {
-	
+
 	private static final String TEST_CSV_FILE = "cateringsystem.csv";
 	private DisplayCase displayCase;
-	
+	private Account account;
+
 	@Before
 	public void setup() {
 		try {
@@ -20,23 +21,40 @@ public class DisplayCaseTest {
 		} catch (FileNotFoundException e) {
 			Assert.fail("Test failed: " + e.getMessage());
 		}
+		account = new Account();
+		try {
+			account.deposit(750);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			displayCase.addToCart(new Dessert("pie", 234, "A6"), 1, account);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
-	
+
 	@Test
 	public void get_inventory_returns_data_from_file() {
-		
+
 		Assert.assertEquals(18, displayCase.getInventory().size());
-		
+
 	}
-	
+
 	@Test
 	public void items_get_added_to_cart() {
-		
-		displayCase.addToCart(new Dessert("pie", 234, "A6"), 1);
 		Cart cart = displayCase.getCart();
-		
-		Assert.assertEquals(2.34, cart.getBalance(), 2);
-		
+
+		Assert.assertEquals(234, cart.getBalance());
+
 	}
-	
+
+	@Test
+	public void account_balance_changes_after_adding_item_to_cart() {
+		Assert.assertEquals(750 - 234, account.getBalance());
+	}
+
 }

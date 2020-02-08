@@ -35,8 +35,12 @@ public class TrayTest {
 	
 	@Test
 	public void returns_48_items_when_2_are_removed() {
-		
-		Assert.assertEquals(48, tray.removeItem(2));
+		try {
+			tray.removeItem(2);
+		} catch (Exception e) {
+			Assert.fail("Removed too many items from tray");
+		}
+		Assert.assertEquals(48, tray.getCount());
 		
 	}
 }

@@ -8,7 +8,7 @@ public class Register {
 	private Map<String, Integer> changeMap = new LinkedHashMap<String, Integer>();
 
 	public Map<String, Integer> makeChange(Account account, Cart cart) {
-		int changeInCents = account.getBalance() - cart.getBalance();
+		int changeInCents = account.getBalance();
 		getNickels(getDimes(getQuarters(getOnes(getFives(getTens(getTwenties(changeInCents)))))));
 		return changeMap;
 	}

@@ -20,7 +20,11 @@ public class RegisterTest {
 public void setup() {
 	register = new Register();
 	Account account = new Account();
-	account.deposit(54555);
+	try {
+		account.deposit(54555);
+	} catch (Exception e) {
+		Assert.fail("Something went terribly wrong.");
+	}
 	Cart cart = new Cart();
 	Item item = new Beverage("Beer", 505, "A3" );
 	Item item2 = new Entree("Pizza", 300, "E6");

@@ -17,9 +17,15 @@ public class Tray {
 		return item;
 	}
 	
-	public int removeItem(int numberOfItems) {
+	public void removeItem(int numberOfItems) throws Exception {
 		
-		return count-=numberOfItems;
+		if (count == 0 ){
+			throw new Exception("Item is Sold Out. ");
+		} else if (count - numberOfItems >= 0) {
+			count-=numberOfItems;
+		} else {
+			throw new Exception("Sorry we only have " + count + " left. Try again. ");
+		}
 		
 	}
 }

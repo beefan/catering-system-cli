@@ -8,11 +8,11 @@ public class Account {
 			
 		}
 		
-		public int deposit(int depositInCents) {
+		public int deposit(int depositInCents) throws Exception {
 			
 			if (balanceInCents + depositInCents > 5000*100) {
 				
-				return balanceInCents;
+				throw new Exception("Your balance cannot exceed $5000.00");
 				
 			}
 			
@@ -20,11 +20,11 @@ public class Account {
 			
 		}
 		
-		public int purchase(int purchaseInCents) {
+		public int purchase(int purchaseInCents) throws Exception {
 			
 			if (balanceInCents - purchaseInCents < 0) {
 				
-				return balanceInCents;
+				throw new Exception("You don't have enough money for that.");
 				
 			}
 			
